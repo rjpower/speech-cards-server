@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  speech_cards:
+    build: .
+    image: rjpower/speech_cards
+    restart: unless-stopped
+    volumes:
+      - $PWD/app.py:/app/app.py
+      - card_data:/data
+    ports:
+      - "9000:9000"
+
+volumes:
+  card_data:
